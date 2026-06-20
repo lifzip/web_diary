@@ -36,9 +36,13 @@ export default async function DashboardPage() {
             <div key={diary.id} className={`card ${styles.diaryCard}`}>
               <h2 className={styles.diaryTitle}>{diary.title}</h2>
               <span className={styles.diaryDate}>
-                {new Date(diary.created_at).toLocaleDateString('id-ID', {
-                  day: 'numeric', month: 'long', year: 'numeric'
-                })}
+                {new Date(diary.created_at).toLocaleString('id-ID', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit'
+                }).replace(',', ' —')}
               </span>
               <p className={styles.diaryPreview}>{diary.content}</p>
 
