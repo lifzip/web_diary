@@ -1,0 +1,177 @@
+.dashboardContainer {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+  /* Supaya responsif di HP */
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.headerSubtitle {
+  color: var(--text-muted);
+  margin: 4px 0 0 0;
+  font-size: 0.95rem;
+}
+
+.headerActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+/* Diary Card Upgrade */
+.diaryCard {
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  /* Sedikit dinaikkan agar ruang bernapasnya pas */
+  background-color: var(--surface-color, white);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.diaryCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary-color);
+}
+
+.diaryHeader {
+  margin-bottom: 12px;
+}
+
+/* Mengubah Tanggal menjadi Badge Cantik */
+.diaryDate {
+  font-size: 0.75rem;
+  background-color: rgba(63, 131, 248, 0.1);
+  /* Efek tint transparan */
+  color: var(--primary-color);
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.diaryBody {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.diaryTitle {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: var(--text-color);
+  line-height: 1.3;
+}
+
+.diaryPreview {
+  flex-grow: 1;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* Pas di 3 baris pratinjau */
+  -webkit-box-orient: vertical;
+}
+
+/* Bagian Tombol Aksi */
+.diaryActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+}
+
+.actionBtn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  text-decoration: none;
+  /* Menghilangkan underline bawaan Link */
+}
+
+.actionBtn.edit:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--text-color);
+}
+
+.actionBtn.delete {
+  color: var(--error-color);
+}
+
+.actionBtn.delete:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+  /* Merah transparan saat hover */
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: var(--surface-color);
+  border-radius: 20px;
+  border: 2px dashed var(--border-color);
+  max-width: 500px;
+  margin: 40px auto 0;
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.emptyState h3 {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  margin: 0 0 8px 0;
+}
+
+.emptyState p {
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}

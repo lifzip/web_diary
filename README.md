@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Judul proyek
+## all about you online diary ##
+aplikasi diary jurnal online pribadi yang aman minimalis dan modern proyek ini dibangun menggunakan nextjs app router dan terintegrasi dengan supabase untuk manajemen basis data serta autentikasi pengguna tanpa menggunakan email murni berbasis username dan password
 
-## Getting Started
+# Fitur utama
+1. Logika autentikasi tanpa email
+sistem masuk login dan pendaftaran register aman menggunakan kombinasi unik username dan kata sandi bebas dari masalah rate limit email provider
+2. Performa cepat
+dibangun dengan nextjs server actions dan server components untuk pemrosesan data yang optimal langsung di sisi server
+3. Tampilan modern dan responsif
+desain grid kartu diary yang estetik dilengkapi pratinjau teks otomatis line-clamp efek kartu melayang hover effect dan skema warna yang ramah mata
+4. Keamanan berlapis
+proteksi bawaan terhadap serangan sql injection sqli dan cross site scripting xss baik melalui filter regex di sisi klien maupun sanitasi string di sisi server
+5. Crud diary
+manajemen penuh untuk membuat melihat memperbarui edit dengan validasi asinkron dan menghapus catatan harian secara instan
 
-First, run the development server:
+# Teknologi yang digunakan
+1. Framework nextjs 15 plus react 19 app router
+2. Database dan auth supabase postgresql dan supabase auth
+3. Styling css modules scoping lokal agar komponen rapi
+4. Bahasa typescript atau javascript
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Keamanan aplikasi
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+aplikasi ini mengimplementasikan aturan validasi ketat untuk menjaga keamanan data pengguna
+1. Username dan nama hanya menerima karakter alfanumerik dan underscore menolak tag html tanda kurung siku atau skrip injeksi berbahaya
+2. Kata sandi diwajibkan memiliki panjang minimal 8 karakter dengan kombinasi wajib huruf besar huruf kecil angka serta simbol seperti karakter spesial
+3. Sanitasi server semua input teks dibersihkan menggunakan metode konversi ke html entities sebelum dikirim ke backend supabase untuk mencegah serangan xss presisten
