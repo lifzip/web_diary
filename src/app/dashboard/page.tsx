@@ -37,6 +37,7 @@ export default async function DashboardPage() {
               <h2 className={styles.diaryTitle}>{diary.title}</h2>
               <span className={styles.diaryDate}>
                 {new Date(diary.created_at).toLocaleString('id-ID', {
+                  timeZone: 'Asia/Jakarta',
                   day: 'numeric',
                   month: 'long',
                   year: 'numeric',
@@ -46,16 +47,25 @@ export default async function DashboardPage() {
               </span>
               <p className={styles.diaryPreview}>{diary.content}</p>
 
+              {/* DI SINI PERUBAHANNYA: Menambahkan tombol Baca */}
               <div className={styles.diaryActions}>
-                <Link href={`/dashboard/edit/${diary.id}`} className={styles.actionBtn}>Edit</Link>
+                <Link href={`/dashboard/post/${diary.id}`} className={`${styles.actionBtn} ${styles.readBtn}`}>
+                  Baca
+                </Link>
+                <Link href={`/dashboard/edit/${diary.id}`} className={styles.actionBtn}>
+                  Edit
+                </Link>
                 <form action={async () => {
                   "use server";
                   const { deleteDiary } = await import("./actions");
                   await deleteDiary(diary.id);
                 }}>
-                  <button type="submit" className={`${styles.actionBtn} ${styles.delete}`}>Hapus</button>
+                  <button type="submit" className={`${styles.actionBtn} ${styles.delete}`}>
+                    Hapus
+                  </button>
                 </form>
               </div>
+
             </div>
           ))}
         </div>

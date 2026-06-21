@@ -26,3 +26,4 @@ aplikasi ini mengimplementasikan aturan validasi ketat untuk menjaga keamanan da
 1. Username dan nama hanya menerima karakter alfanumerik dan underscore menolak tag html tanda kurung siku atau skrip injeksi berbahaya
 2. Kata sandi diwajibkan memiliki panjang minimal 8 karakter dengan kombinasi wajib huruf besar huruf kecil angka serta simbol seperti karakter spesial
 3. Sanitasi server semua input teks dibersihkan menggunakan metode konversi ke html entities sebelum dikirim ke backend supabase untuk mencegah serangan xss presisten
+4. Pemrosesan data di sisi server secara ketat memastikan bahwa query pemanggilan detail catatan selalu mencocokkan diary_id bersamaan dengan user_id dari sesi aktif pengguna yang sedang login. Jika terjadi ketidakcocokan data, sistem otomatis melempar ke halaman Not Found demi menjaga privasi user.

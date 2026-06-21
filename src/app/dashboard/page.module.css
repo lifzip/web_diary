@@ -175,3 +175,129 @@
   margin-bottom: 24px;
   font-size: 0.95rem;
 }
+
+.diaryLinkWrapper {
+  text-decoration: none;
+  color: inherit;
+  /* Agar warna teks tidak berubah jadi biru link standar */
+  display: block;
+  cursor: pointer;
+}
+
+.diaryLinkWrapper:hover .diaryTitle {
+  text-decoration: underline;
+  /* Opsional: memberi efek garis bawah pada judul saat di-hover */
+}
+
+.readBtn {
+  background-color: #2563eb;
+  /* Warna biru modern */
+  color: white !important;
+  border-radius: 4px;
+}
+
+.readBtn:hover {
+  background-color: #1d4ed8;
+  /* Warna biru sedikit gelap saat di-hover */
+}
+
+/* Kontainer pembungkus bunga agar posisinya absolut di background */
+.flowersContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* Supaya bunga tidak menghalangi klik tombol/tulisan */
+  z-index: 1;
+}
+
+.flower {
+  position: absolute;
+  top: -20px;
+  /* Mengatur ukuran bunga */
+  width: 24px;
+  height: 24px;
+  user-select: none;
+  animation: fly linear infinite;
+  opacity: 0.7;
+
+  /* MEMANGGIL BENTUK BUNGA BIRU ASLI (Aman dari warna pink) */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2363b3ed'><path d='M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1-4 4 4 4 0 0 1-4-4V6a4 4 0 0 1 4-4zm0 20a4 4 0 0 1-4-4v-1a4 4 0 0 1 4-4 4 4 0 0 1 4 4v1a4 4 0 0 1-4 4zm10-10a4 4 0 0 1-4 4h-1a4 4 0 0 1-4-4 4 4 0 0 1 4-4h1a4 4 0 0 1 4 4zM2 12a4 4 0 0 1 4-4h1a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z'/></svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Mengatur posisi awal horizontal, kecepatan jatuh, dan delay tiap bunga agar acak */
+.flower:nth-child(1) {
+  left: 10%;
+  animation-duration: 8s;
+  animation-delay: 0s;
+}
+
+.flower:nth-child(2) {
+  left: 25%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+  font-size: 1rem;
+}
+
+.flower:nth-child(3) {
+  left: 40%;
+  animation-duration: 10s;
+  animation-delay: 1s;
+}
+
+.flower:nth-child(4) {
+  left: 55%;
+  animation-duration: 7s;
+  animation-delay: 4s;
+  font-size: 1.8rem;
+}
+
+.flower:nth-child(5) {
+  left: 70%;
+  animation-duration: 14s;
+  animation-delay: 0.5s;
+}
+
+.flower:nth-child(6) {
+  left: 85%;
+  animation-duration: 9s;
+  animation-delay: 3s;
+  font-size: 1.2rem;
+}
+
+.flower:nth-child(7) {
+  left: 30%;
+  animation-duration: 11s;
+  animation-delay: 5s;
+}
+
+.flower:nth-child(8) {
+  left: 90%;
+  animation-duration: 6s;
+  animation-delay: 1.5s;
+}
+
+/* Logika gerakan animasi: jatuh ke bawah sambil meluncur ke samping dan berputar */
+@keyframes fly {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.7;
+  }
+
+  90% {
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(105vh) translateX(80px) rotate(360deg);
+    opacity: 0;
+  }
+}
